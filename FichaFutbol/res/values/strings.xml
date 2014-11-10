@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">FichaFutbol</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <string-array name="spinner1">
+        <item>Benjamin</item>
+        <item>Alevin</item>
+        <item>Infantil</item>
+        <item>Cadete</item>
+        <item>Juvenil</item>
+        <item>Amateur</item>
+    </string-array>
+
+    <string name="title_activity_recibe_ficha">RecibeFicha</string>
+
+</resources>
