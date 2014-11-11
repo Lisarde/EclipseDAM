@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">ActionBar</string>
+    <string name="hello_world">Carlos Lisarde</string>
+    <string name="action_settings">Settings</string>
+    <string name="menu_settings">Settings</string>
+    <string name="menu_guardar">Guardar</string>
+    <string name="menu_nuevo">Nuevo</string>
+    <string name="title_activity_tab1_fragment">Tab1Fragment</string>
+    <string name="title_activity_tab2_fragment">Tab2Fragment</string>
+    <string name="tab_1">Tab1 Circulo Carlos Lisarde</string>
+    <string name="tab_2">Tab2 Cuadrado Carlos Lisarde</string>
+    
+
+</resources>
