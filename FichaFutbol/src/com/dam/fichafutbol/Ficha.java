@@ -13,7 +13,6 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 public class Ficha extends Activity {
-
 	String lista;
 	String sexo="";
 	Spinner spinner;
@@ -81,7 +80,7 @@ public class Ficha extends Activity {
 	}
 
 	public void enviarFicha(View view) {
-		Intent intent = new Intent(this, RecibeFicha.class);
+		Intent intent = new Intent(this, Actividad2.class);
 		// Nombre:
 		EditText nombre = (EditText) findViewById(R.id.nombre);
 		intent.putExtra("nombre", nombre.getText().toString());

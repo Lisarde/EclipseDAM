@@ -23,7 +23,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".RecibeFicha"
+            android:name=".Actividad2"
             android:label="@string/title_activity_recibe_ficha" >
         </activity>
     </application>

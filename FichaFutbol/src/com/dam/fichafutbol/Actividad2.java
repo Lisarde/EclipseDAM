@@ -11,7 +11,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class RecibeFicha extends Activity {
+public class Actividad2 extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
