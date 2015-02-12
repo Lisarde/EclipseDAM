@@ -13,7 +13,25 @@
         <item>Juvenil</item>
         <item>Amateur</item>
     </string-array>
+    
+    <string-array name="spinnerActu">
+        <item>Ninguno</item>
+        <item>Benjamin</item>
+        <item>Alevin</item>
+        <item>Infantil</item>
+        <item>Cadete</item>
+        <item>Juvenil</item>
+        <item>Amateur</item>
+    </string-array>
 
-    <string name="title_activity_recibe_ficha">RecibeFicha</string>
+    <string name="title_activity_recibe_ficha">Insertar Datos</string>
+    <string name="title_activity_principal">Ficha Futbol</string>
+    <string name="title_activity_eliminar">Eliminar Datos</string>
+    <string name="title_activity_recibe_eliminar">Eliminar Registro</string>
+    <string name="title_activity_mostrar">Mostrar Registros</string>
+    <string name="title_activity_recibe_mostrar">Mostrar Datos</string>
+    <string name="title_activity_actualizar">Actualizar Datos</string>
+    <string name="title_activity_recibe_acualizar">Actualizar Datos</string>
+    <string name="title_activity_recibe_actualizar_confirm">Actualizar Datos</string>
 
 </resources>

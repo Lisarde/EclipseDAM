@@ -1,9 +1,10 @@
 package com.dam.fichafutbol;
 
-
-
 import android.app.Activity;
+import android.content.ContentValues;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -11,36 +12,60 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class Actividad2 extends Activity {
+public class RecibeEliminar extends Activity {
 
+	private SQLiteDatabase db;
+	String nombreDeFicha;
+    String apellidoDeFicha;
+    String apellido2DeFicha;
+    String dniDeFicha;
+    String edadDeFicha;
+    String spinner1DeFicha;
+    String sexoDeFicha;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_recibe_ficha);
+		setContentView(R.layout.activity_recibe_eliminar);
+		
+		FichaFutbolBD usdbh = new FichaFutbolBD(this,
+				"DBFichaFutbol", null, 1);
+		db = usdbh.getWritableDatabase();
 		
 		
 		Bundle extras = getIntent().getExtras();
 
-	       String nombreDeFicha = extras.getString("nombre");
-	       String apellidoDeFicha = extras.getString("apellido");
-	       String apellido2DeFicha = extras.getString("apellido2");
-	       String dniDeFicha = extras.getString("dni");
-	       String edadDeFicha = extras.getString("edad");
-	       String spinner1DeFicha = extras.getString("spinner1");
-	       String sexoDeFicha = extras.getString("sexo");
+	       dniDeFicha = extras.getString("dni");
+
+	       int dniConvert = Integer.parseInt(dniDeFicha.toString());
 	       
+	       String DNIFinal = letraDNI(dniConvert);
+	       
+	       Cursor c = db.rawQuery("SELECT * FROM Jugadores WHERE DNI=\""+DNIFinal+"\"", null);
+	              
+	       if (c.moveToFirst()) {
+	    	     //Recorremos el cursor hasta que no haya más registros
+	    	   //  do {
+	    	   		dniDeFicha= c.getString(0);
+	    	        nombreDeFicha= c.getString(1);
+	    	        apellidoDeFicha = c.getString(2);
+	    	        apellido2DeFicha= c.getString(3);
+	    	        edadDeFicha= c.getString(4);
+	    	        spinner1DeFicha= c.getString(5);
+	    	        sexoDeFicha= c.getString(6);       	    	          	    	    
+	    	 //    } while(c.moveToNext());
+	    	} else {
+	    		Toast.makeText(this, "No existe el DNI", Toast.LENGTH_SHORT).show();
+	    	}
 	       
 	       TextView nombre = (TextView)findViewById(R.id.nombreR);
 	       nombre.setText(nombreDeFicha);
 	       TextView apellido = (TextView)findViewById(R.id.apellidoR);
 	       apellido.setText(apellidoDeFicha);
 	       TextView apellido2 = (TextView)findViewById(R.id.apellido2R);
-	       apellido2.setText(apellido2DeFicha);
-	       
-	       TextView dni = (TextView)findViewById(R.id.dniR);	
-	       int dniConvert = Integer.parseInt(dniDeFicha.toString());
-	       dni.setText(letraDNI(dniConvert));
-	       
+	       apellido2.setText(apellido2DeFicha);	       
+	       TextView dni = (TextView)findViewById(R.id.dniR);
+	       dni.setText(dniDeFicha);
 	       TextView edad = (TextView)findViewById(R.id.edadR);
 	       edad.setText(edadDeFicha);
 	       TextView spinner1 = (TextView)findViewById(R.id.spinner1R);
@@ -48,10 +73,8 @@ public class Actividad2 extends Activity {
 	       TextView sexo = (TextView)findViewById(R.id.sexoR);
 	       sexo.setText(sexoDeFicha);
 	       
-	       
-	       
-	       
 	}
+
 	
 	public static final String NIF_STRING_ASOCIATION = "TRWAGMYFPDXBNJZSQVHLCKE";
 	 
@@ -63,12 +86,12 @@ public class Actividad2 extends Activity {
 	  public static String letraDNI(int dni) {
 	    return String.valueOf(dni) + NIF_STRING_ASOCIATION.charAt(dni % 23);
 	  }
+	  
 	
-
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.recibe_ficha, menu);
+		getMenuInflater().inflate(R.menu.recibe_eliminar, menu);
 		return true;
 	}
 
@@ -83,27 +106,32 @@ public class Actividad2 extends Activity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
-	
 	public void aceptar(View view){    	
+		
+		db.delete("Jugadores", "DNI=\"" + dniDeFicha+"\"", null);	
+		
+		
+		
 		Intent intent = new Intent();
 
 	       intent.putExtra("resultado","Aceptado");
 
 	       setResult(RESULT_OK, intent);
-	   	
-	       Toast.makeText(this, "Los datos se han guardado correctamente", Toast.LENGTH_SHORT).show();
+   	
+       Toast.makeText(this, "La fila se ha eliminado correctamente", Toast.LENGTH_SHORT).show();
 
 
-	       finish();
-      }
+       finish();
+  }
+
+public void cancelar(View view){    	
+	Intent intent = new Intent();
+
+       intent.putExtra("resultado","Rechazado");
+
+       setResult(RESULT_OK, intent);
+
+       finish();
+  }
 	
-	public void cancelar(View view){    	
-		Intent intent = new Intent();
-
-	       intent.putExtra("resultado","Rechazado");
-
-	       setResult(RESULT_OK, intent);
-
-	       finish();
-      }
 }

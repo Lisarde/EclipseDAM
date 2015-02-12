@@ -10,6 +10,7 @@ package com.dam.fichafutbol;
 public final class R {
     public static final class array {
         public static final int spinner1=0x7f060000;
+        public static final int spinnerActu=0x7f060001;
     }
     public static final class attr {
     }
@@ -28,48 +29,89 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int LinearLayout1=0x7f090000;
-        public static final int action_settings=0x7f09001b;
-        public static final int apellido=0x7f090002;
-        public static final int apellido2=0x7f090003;
-        public static final int apellido2R=0x7f09000f;
-        public static final int apellidoR=0x7f09000d;
-        public static final int button1=0x7f090019;
-        public static final int button2=0x7f09001a;
-        public static final int dni=0x7f090004;
-        public static final int dniR=0x7f090011;
-        public static final int edad=0x7f090005;
-        public static final int edadR=0x7f090013;
-        public static final int enviar=0x7f090009;
-        public static final int hombre=0x7f090006;
-        public static final int mujer=0x7f090007;
-        public static final int nombre=0x7f090001;
-        public static final int nombreR=0x7f09000b;
-        public static final int sexoR=0x7f090017;
-        public static final int spinner1=0x7f090008;
-        public static final int spinner1R=0x7f090015;
-        public static final int textView1=0x7f090018;
-        public static final int textView2=0x7f09000c;
-        public static final int textView3=0x7f09000e;
-        public static final int textView4=0x7f09000a;
-        public static final int textView5=0x7f090010;
-        public static final int textView6=0x7f090012;
-        public static final int textView7=0x7f090014;
-        public static final int textView8=0x7f090016;
+        public static final int LinearLayout1=0x7f090004;
+        public static final int action_settings=0x7f09002c;
+        public static final int actualizar=0x7f090001;
+        public static final int apellido=0x7f090006;
+        public static final int apellido2=0x7f090007;
+        public static final int apellido2R=0x7f090027;
+        public static final int apellido2RR=0x7f090019;
+        public static final int apellidoR=0x7f090026;
+        public static final int apellidoRR=0x7f090017;
+        public static final int bi=0x7f09000d;
+        public static final int button1=0x7f090010;
+        public static final int button11=0x7f090023;
+        public static final int button2=0x7f090011;
+        public static final int button22=0x7f090024;
+        public static final int button3=0x7f090012;
+        public static final int button4=0x7f090013;
+        public static final int dni=0x7f090000;
+        public static final int dniR=0x7f090028;
+        public static final int dniRR=0x7f09001b;
+        public static final int edad=0x7f090008;
+        public static final int edadR=0x7f090029;
+        public static final int edadRR=0x7f09001d;
+        public static final int eliminar=0x7f090003;
+        public static final int enviar=0x7f09000c;
+        public static final int hombre=0x7f090009;
+        public static final int mostrar=0x7f09000f;
+        public static final int mujer=0x7f09000a;
+        public static final int nombre=0x7f090005;
+        public static final int nombreR=0x7f090025;
+        public static final int nombreRR=0x7f090015;
+        public static final int sexoR=0x7f090021;
+        public static final int spinner1=0x7f09000b;
+        public static final int spinner1R=0x7f09002a;
+        public static final int spinner1RR=0x7f09001f;
+        public static final int spinnerActu=0x7f09000e;
+        public static final int textView1=0x7f090022;
+        public static final int textView2=0x7f090016;
+        public static final int textView3=0x7f090018;
+        public static final int textView4=0x7f090014;
+        public static final int textView5=0x7f09001a;
+        public static final int textView6=0x7f09001c;
+        public static final int textView7=0x7f09001e;
+        public static final int textView8=0x7f090020;
+        public static final int totalR=0x7f09002b;
+        public static final int volver=0x7f090002;
     }
     public static final class layout {
-        public static final int activity_ficha=0x7f030000;
-        public static final int activity_recibe_ficha=0x7f030001;
+        public static final int activity_actualizar=0x7f030000;
+        public static final int activity_eliminar=0x7f030001;
+        public static final int activity_ficha=0x7f030002;
+        public static final int activity_mostrar=0x7f030003;
+        public static final int activity_principal=0x7f030004;
+        public static final int activity_recibe_actualizar_confirm=0x7f030005;
+        public static final int activity_recibe_acualizar=0x7f030006;
+        public static final int activity_recibe_eliminar=0x7f030007;
+        public static final int activity_recibe_ficha=0x7f030008;
+        public static final int activity_recibe_mostrar=0x7f030009;
     }
     public static final class menu {
-        public static final int ficha=0x7f080000;
-        public static final int recibe_ficha=0x7f080001;
+        public static final int actualizar=0x7f080000;
+        public static final int eliminar=0x7f080001;
+        public static final int ficha=0x7f080002;
+        public static final int mostrar=0x7f080003;
+        public static final int principal=0x7f080004;
+        public static final int recibe_actualizar_confirm=0x7f080005;
+        public static final int recibe_acualizar=0x7f080006;
+        public static final int recibe_eliminar=0x7f080007;
+        public static final int recibe_ficha=0x7f080008;
+        public static final int recibe_mostrar=0x7f080009;
     }
     public static final class string {
         public static final int action_settings=0x7f050002;
         public static final int app_name=0x7f050000;
         public static final int hello_world=0x7f050001;
+        public static final int title_activity_actualizar=0x7f050009;
+        public static final int title_activity_eliminar=0x7f050005;
+        public static final int title_activity_mostrar=0x7f050007;
+        public static final int title_activity_principal=0x7f050004;
+        public static final int title_activity_recibe_actualizar_confirm=0x7f05000b;
+        public static final int title_activity_recibe_acualizar=0x7f05000a;
+        public static final int title_activity_recibe_eliminar=0x7f050006;
         public static final int title_activity_recibe_ficha=0x7f050003;
+        public static final int title_activity_recibe_mostrar=0x7f050008;
     }
     public static final class style {
         /** 

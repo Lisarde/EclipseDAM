@@ -6,21 +6,32 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 public class Ficha extends Activity {
+
 	String lista;
-	String sexo="";
+	String sexo = "";
 	Spinner spinner;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_ficha);
+
+		Button volver = (Button) findViewById(R.id.volver);
+
+		volver.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				finish();
+			}
+		});
 
 		spinner = (Spinner) findViewById(R.id.spinner1);
 		// Create an ArrayAdapter using the string array and a default spinner
@@ -52,14 +63,14 @@ public class Ficha extends Activity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
-	
+
 	public static boolean isNumber(String string) {
-	    try {
-	        Long.parseLong(string);
-	    } catch (Exception e) {
-	        return false;
-	    }
-	    return true;
+		try {
+			Long.parseLong(string);
+		} catch (Exception e) {
+			return false;
+		}
+		return true;
 	}
 
 	public void radioBoton(View view) {
@@ -80,7 +91,7 @@ public class Ficha extends Activity {
 	}
 
 	public void enviarFicha(View view) {
-		Intent intent = new Intent(this, Actividad2.class);
+		Intent intent = new Intent(this, RecibeFicha.class);
 		// Nombre:
 		EditText nombre = (EditText) findViewById(R.id.nombre);
 		intent.putExtra("nombre", nombre.getText().toString());
@@ -102,50 +113,36 @@ public class Ficha extends Activity {
 		// Sexo
 		intent.putExtra("sexo", sexo);
 
-		if (nombre.length() == 0 ) {
+		if (nombre.length() == 0) {
 			Toast.makeText(this, "El nombre es obligatorio", Toast.LENGTH_SHORT)
 					.show();
 
+		} else if (apellido.length() == 0) {
+			Toast.makeText(this, "El apellido es obligatorio",
+					Toast.LENGTH_SHORT).show();
 		} else {
-			if (apellido.length() == 0) {
-				Toast.makeText(this, "El apellido es obligatorio",
+			if (dni.length() != 8) {
+				Toast.makeText(this, "El DNI completo obligatorio",
 						Toast.LENGTH_SHORT).show();
 
+			} else if (edad.length() == 0) {
+				Toast.makeText(this, "La edad es obligatoria",
+						Toast.LENGTH_SHORT).show();
+
+			} else if (sexo.length() == 0) {
+				Toast.makeText(this, "El sexo es obligatorio",
+						Toast.LENGTH_SHORT).show();
+
+			} else if (isNumber(nombre.getText().toString())
+					|| isNumber(apellido.getText().toString())
+					|| isNumber(apellido2.getText().toString())) {
+				Toast.makeText(this,
+						"No se pueden introducir numeros en este campo",
+						Toast.LENGTH_SHORT).show();
 			} else {
-				if (dni.length() != 8) {
-					Toast.makeText(this, "El DNI completo obligatorio",
-							Toast.LENGTH_SHORT).show();					
-
-				} else {
-					if (edad.length() == 0) {
-						Toast.makeText(this, "La edad es obligatoria",
-								Toast.LENGTH_SHORT).show();
-
-					} else {
-						
-						if (sexo.length()==0) {
-							Toast.makeText(this, "El sexo es obligatorio",
-									Toast.LENGTH_SHORT).show();
-
-						} else {
-							if (isNumber(nombre.getText().toString()) || isNumber(apellido.getText().toString()) || isNumber(apellido2.getText().toString())) {
-								Toast.makeText(this, "No se pueden introducir numeros en este campo",
-										Toast.LENGTH_SHORT).show();
-							}else {
-								startActivityForResult(intent, 1234);
-							}
-								
-
-						}
-
-					}
-
-				}
-
+				startActivityForResult(intent, 1234);
 			}
-
 		}
-
 	}
 
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -156,16 +153,7 @@ public class Ficha extends Activity {
 
 			if (res.equals("Aceptado")) {
 
-				EditText nom = (EditText) findViewById(R.id.nombre);
-				nom.setText("");
-				EditText ape = (EditText) findViewById(R.id.apellido);
-				ape.setText("");
-				EditText ape2 = (EditText) findViewById(R.id.apellido2);
-				ape2.setText("");
-				EditText dni = (EditText) findViewById(R.id.dni);
-				dni.setText("");
-				EditText eda = (EditText) findViewById(R.id.edad);
-				eda.setText("");
+				finish();
 
 			}
 
